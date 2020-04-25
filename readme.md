@@ -17,7 +17,8 @@ const client = new Client({
 Then either use REST:
 
 ```js
-const fetchProducts = client.rest('/products');
+const fetchProducts = await client.rest('/products');
+const products = await fetchProducts.json();
 ```
 
 or SOAP:
@@ -61,5 +62,3 @@ Returns a Promise that resolves into an object.
 | ------ | -------- | ------ | ------- | ------------------------- |
 | `func` | yes      | string | N/A     | name of the SOAP function |
 | `args` | no       | object | N/A     | argument for the request  |
-
-returns an object

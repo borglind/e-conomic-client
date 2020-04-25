@@ -7,7 +7,7 @@ A simple wrapper for E-conomic's REST and SOAP APIs.
 Create a client:
 
 ```js
-import Client from 'visma-client';
+import Client from 'e-conomic-client';
 
 const client = new Client({
   // settings

@@ -23,12 +23,16 @@ const fetchProducts = client.rest('/products');
 or SOAP:
 
 ```js
-const products = client.soap();
+const inventory = await client.soap('Product_GetInventoryLocationStatus', {
+  productHandle: {
+    Number: 102
+  }
+});
 ```
 
 ### Options
 
-| key            | required | type     | default                                                              | description                                       |
+| name           | required | type     | default                                                              | description                                       |
 | -------------- | -------- | -------- | -------------------------------------------------------------------- | ------------------------------------------------- |
 | `soapEndpoint` | no       | string   | `https://api.e-conomic.com/secure/api1/EconomicWebService.asmx?WSDL` |                                                   |
 | `restEndpoint` | no       | string   | `https://restapi.e-conomic.com`                                      |                                                   |
@@ -40,4 +44,22 @@ const products = client.soap();
 
 #### rest(path, options)
 
+Calls the e-conomic REST API ([docs](https://restdocs.e-conomic.com/)).  
+Returns a Promise that resolve into a fetch request.
+
+| name      | required | type   | default | description          |
+| --------- | -------- | ------ | ------- | -------------------- |
+| `path`    | yes      | string | N/A     | path to the resource |
+| `options` | no       | object | N/A     | fetch options        |
+
 #### soap(func, args)
+
+Calls the e-conomic SOAP API ([docs](https://api.e-conomic.com/secure/api1/EconomicWebService.asmx)).  
+Returns a Promise that resolves into an object.
+
+| name   | required | type   | default | description               |
+| ------ | -------- | ------ | ------- | ------------------------- |
+| `func` | yes      | string | N/A     | name of the SOAP function |
+| `args` | no       | object | N/A     | argument for the request  |
+
+returns an object

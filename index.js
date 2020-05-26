@@ -1,5 +1,6 @@
 const soap = require('soap');
 const SoapCookie = require('soap-cookie');
+const fetch = require('node-fetch');
 
 class Client {
   constructor(options) {
